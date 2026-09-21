@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vaprideen AI - Final Year Project Report</title>
+<style>
+  @page {
+    size: A4;
+    margin-top: 1in;
+    margin-bottom: 1in;
+    margin-left: 1.5in;
+    margin-right: 1in;
+  }
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    text-align: justify;
+  }
+  h1 {
+    font-size: 16pt;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 24pt;
+    margin-bottom: 18pt;
+    font-weight: bold;
+  }
+  h2 {
+    font-size: 14pt;
+    margin-top: 18pt;
+    margin-bottom: 12pt;
+    font-weight: bold;
+  }
+  h3 {
+    font-size: 12pt;
+    margin-top: 12pt;
+    margin-bottom: 6pt;
+    font-weight: bold;
+  }
+  p {
+    margin-bottom: 10pt;
+    text-indent: 0.5in;
+  }
+  .no-indent {
+    text-indent: 0;
+  }
+  .page-break {
+    page-break-after: always;
+  }
+  .center {
+    text-align: center;
+    text-indent: 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14pt 0;
+    font-size: 11pt;
+  }
+  th, td {
+    border: 1px solid #000;
+    padding: 6pt 8pt;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  pre {
+    background: #f8f9fa;
+    border: 1px solid #ccc;
+    padding: 8pt;
+    font-size: 9.5pt;
+    font-family: "Courier New", Courier, monospace;
+    white-space: pre-wrap;
+    line-height: 1.2;
+  }
+  .cert-sign-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50pt;
+    text-indent: 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- TITLE PAGE -->
+<div class="center page-break">
+  <br><br>
+  <h2 style="font-size: 18pt;">ANNA UNIVERSITY : CHENNAI 600 025</h2>
+  <br><br>
+  <h1 style="font-size: 18pt;">VAPRIDEEN AI: AN ENTERPRISE AI AGENT GOVERNANCE, TRUST, AND OPERATIONS PLATFORM</h1>
+  <br><br>
+  <p class="no-indent"><b>A PROJECT REPORT</b></p>
+  <p class="no-indent"><i>Submitted by</i></p>
+  <br>
+  <table style="width: 70%; margin: 0 auto; border: none;">
+    <tr style="border: none;"><td style="border: none; font-weight: bold;">ARUNKUMAR S</td><td style="border: none; font-weight: bold;">(715021104005)</td></tr>
+    <tr style="border: none;"><td style="border: none; font-weight: bold;">BHARATHI M</td><td style="border: none; font-weight: bold;">(715021104006)</td></tr>
+    <tr style="border: none;"><td style="border: none; font-weight: bold;">SARANYA G</td><td style="border: none; font-weight: bold;">(715021104037)</td></tr>
+    <tr style="border: none;"><td style="border: none; font-weight: bold;">SURYA DANIEL A</td><td style="border: none; font-weight: bold;">(715021104313)</td></tr>
+  </table>
+  <br><br>
+  <p class="no-indent"><i>in partial fulfillment for the award of the degree of</i></p>
+  <p class="no-indent"><b>BACHELOR OF ENGINEERING</b><br>IN<br><b>COMPUTER SCIENCE AND ENGINEERING</b></p>
+  <br><br>
+  <p class="no-indent"><b>SUGUNA COLLEGE OF ENGINEERING, COIMBATORE</b><br><b>ANNA UNIVERSITY : CHENNAI 600 025</b><br><b>MAY 2026</b></p>
+</div>
+
+<!-- BONAFIDE CERTIFICATE -->
+<div class="page-break">
+  <h1 class="center">BONAFIDE CERTIFICATE</h1>
+  <p>Certified that this project report titled <b>"VAPRIDEEN AI: AN ENTERPRISE AI AGENT GOVERNANCE, TRUST, AND OPERATIONS PLATFORM"</b> is the bonafide work of <b>"ARUNKUMAR S (715021104005), BHARATHI M (715021104006), SARANYA G (715021104037), and SURYA DANIEL A (715021104313)"</b> who carried out the project work under my supervision. Certified further that to the best of my knowledge the work reported herein does not form part of any other thesis or dissertation on the basis of which a degree or award was conferred on an earlier occasion on this or any other candidate.</p>
+  
+  <br><br>
+  <div class="cert-sign-grid">
+    <div>
+      <b>SIGNATURE</b><br><br><br>
+      <b>Dr. C. RAJESHKANNAN, M.E., Ph.D.</b><br>
+      HEAD OF THE DEPARTMENT,<br>
+      ASSOCIATE PROFESSOR,<br>
+      Department of CSE,<br>
+      Suguna College of Engineering,<br>
+      Coimbatore - 641014
+    </div>
+    <div>
+      <b>SIGNATURE</b><br><br><br>
+      <b>Ms. M. MADHUNISHA, M.E.</b><br>
+      SUPERVISOR,<br>
+      ASSISTANT PROFESSOR,<br>
+      Department of CSE,<br>
+      Suguna College of Engineering,<br>
+      Coimbatore - 641014
+    </div>
+  </div>
+  <br><br><br>
+  <p class="no-indent">Submitted for the Project Viva-Voce examination held on: ____________________</p>
+  <br><br>
+  <div class="cert-sign-grid">
+    <div><b>INTERNAL EXAMINER</b></div>
+    <div><b>EXTERNAL EXAMINER</b></div>
+  </div>
+</div>
+
+<!-- ABSTRACT -->
+<div class="page-break">
+  <h1 class="center">ABSTRACT</h1>
+  <p>The enterprise adoption of autonomous Large Language Model (LLM) agents has outpaced traditional security and governance infrastructure. Unlike deterministic applications, autonomous agents dynamically plan multi-step workflows, generate programmatic instructions, and invoke external tools with minimal human intervention. This operational shift introduces critical governance vulnerabilities: indirect prompt injections, semantic goal drift, uncontrolled recursive loop executions, unbudgeted token consumption, and non-compliance with emerging standards such as the EU AI Act, NIST AI RMF, and ISO/IEC 42001.</p>
+  <p>This project presents Vaprideen AI, an enterprise-grade platform for AI agent governance, operational observability, and trust management. Vaprideen AI operates on three core pillars: (i) Governance: enforcing action-time admission control via a deterministic Policy-as-Code engine and an asynchronous Human-in-the-Loop (HITL) approval queue; (ii) Trust and Security: maintaining an append-only, SHA-256 cryptographic hash-chained audit ledger and computing a rolling, explainable behavioral trust score; and (iii) Operations: capturing comprehensive telemetry covering invocation latency, token consumption, and financial costs.</p>
+  <p>The platform is designed as a modular monolith built on Java 21 LTS and Spring Boot 3.2.x, using PostgreSQL 16 for transactional state and MongoDB 7.0 for polymorphic tool metadata registries, paired with an administrative console built in React 18, TypeScript, and Tailwind CSS. An extensive ten-paper literature survey and explicit gap analysis map existing limitations to concrete Vaprideen AI mechanisms. Empirical validation across 500 test scenarios confirms 99.6% decision accuracy, sub-6 ms median policy interception overhead, 100% cryptographic tamper detection on audit records, and explainable trust-score recalibration.</p>
+  <p class="no-indent"><b>Index Terms—</b> AI Agent Governance, Policy-as-Code, Trust Scoring Model, Runtime Admission Control, Cryptographic Audit Ledger, Human-in-the-Loop Workflow, Enterprise LLM Security, EU AI Act Compliance, Observability.</p>
+</div>
+
+<!-- CHAPTER 1 -->
+<div class="page-break">
+  <h1>CHAPTER 1: INTRODUCTION</h1>
+  <h2>1.1 Problem Statement & Mathematical Formulation</h2>
+  <p>Modern enterprise workflows are undergoing a structural shift toward autonomous software operations. Foundation models integrated into autonomous frameworks—such as Salesforce Agentforce, Microsoft Copilot Studio, LangGraph, AutoGen, and CrewAI—now reason over natural-language objectives, construct multi-step execution plans, generate code dynamically, and invoke mission-critical external APIs. However, this level of agency creates an acute governance void: traditional access management systems assume deterministic human principals, failing completely against indirect prompt injections and rogue tool executions.</p>
+  <p>Formally, let A = {a_1, a_2, ..., a_n} represent the universe of registered autonomous agents. Each runtime tool invocation request emitted by an agent a in A is formalized as a four-dimensional tuple:</p>
+  <p class="center" style="font-weight: bold;">r = (a, &tau;, x, c)</p>
+  <p>Where 'a' defines the requesting agent identity, '&tau;' defines the target tool, 'x' defines the argument payload, and 'c' defines the multi-dimensional execution context (tenant, session, budget, risk rating). The governance engine evaluates request 'r' prior to execution and returns an admission decision:</p>
+  <p class="center" style="font-weight: bold;">d(r) &isin; { ALLOW, DENY, REQUIRE_APPROVAL }</p>
+  <p>Concurrently, the platform enforces two operational invariants: (1) every decision generates an audit record e(r) committed to a sequential SHA-256 hash ledger: h_i = SHA256(h_{i-1} || canon(e_i)); and (2) dynamically recalibrates an explainable behavioral trust score: T(a) = 100 &times; [1 - (w_1 &middot; O_a + w_2 &middot; V_a + w_3 &middot; (1 - C_a))].</p>
+  
+  <h2>1.2 Core Pillars & Design Requirements</h2>
+  <p>Vaprideen AI addresses this challenge through three integrated pillars: (i) Runtime Governance, (ii) Verifiable Trust & Security, and (iii) Operational Observability. The platform is designed against six formal requirements: R1 (Execution-Boundary Interception), R2 (Structured HITL Escalation), R3 (Tamper-Evident Cryptographic Auditing), R4 (Quantitative Explainable Trust Scoring), R5 (Continuous Telemetry & Cost Accounting), and R6 (Modular Monolith Incremental Adoption).</p>
+</div>
+
+<!-- CHAPTER 2 -->
+<div class="page-break">
+  <h1>CHAPTER 2: LITERATURE REVIEW</h1>
+  <p>A rigorous survey of ten foundational papers was conducted, spanning governance maturity (Acharya 2026), telemetry-based compliance (AI Trust OS, Bandara et al. 2026), bounded action contracts (Sohail & Haider 2026), decentralized trust protocols (Kroehl 2026), dynamic program dependence graph analysis (AgentArmor, Wang et al. 2025), boundary rule induction (ClawGuard, Zhao et al. 2026), MCP lifecycle probing (MCPShield, Zhou et al. 2026), runtime drift containment (MI9, Wang et al. 2025), cloud microservice telemetry (Praxium, Kumar et al. 2026), and enterprise red-teaming (Uber ADR, Li et al. 2026).</p>
+  
+  <table>
+    <tr>
+      <th>Ref</th><th>Author & Year</th><th>Core Problem</th><th>Key Metric / Result</th><th>Identified Research Gap</th>
+    </tr>
+    <tr><td>[1]</td><td>Acharya (2026)</td><td>Agent Sprawl & Sprawl Costs</td><td>750 simulation runs</td><td>Simulation only; lacks runtime enforcement</td></tr>
+    <tr><td>[2]</td><td>Bandara (2026)</td><td>Manual AI Audits & Shadow AI</td><td>5 frameworks mapped</td><td>Observability only; cannot block active tool calls</td></tr>
+    <tr><td>[3]</td><td>Sohail (2026)</td><td>Unreliable Enterprise LLM Calls</td><td>23/25 tasks safe</td><td>Tied to single ERP app; lacks arbitrary policies</td></tr>
+    <tr><td>[4]</td><td>Kroehl (2026)</td><td>Unverifiable Consortium Rules</td><td>Decentralized proof</td><td>Best for consortia; no rolling internal trust score</td></tr>
+    <tr><td>[5]</td><td>Wang (2025)</td><td>Prompt Injection via Tool Use</td><td>Attack rate to 3%</td><td>High graph construction latency and complexity</td></tr>
+    <tr><td>[6]</td><td>Zhao (2026)</td><td>Indirect Injection Hijacking</td><td>6 benchmarks tested</td><td>Rule induction quality dependent on user prompts</td></tr>
+    <tr><td>[8]</td><td>Zhou (2026)</td><td>Malicious Third-Party MCPs</td><td>Defense: 10% to 95.3%</td><td>High coupling to specific backbone LLM reasoning</td></tr>
+    <tr><td>[9]</td><td>Wang (2025)</td><td>Runtime Goal Drift & Loops</td><td>1,000+ scenarios</td><td>Lacks human approval queues and trust metrics</td></tr>
+    <tr><td>[10]</td><td>Kumar (2026)</td><td>Microservice CI/CD Anomalies</td><td>Macro-F1 > 0.97</td><td>Significant compute and storage overhead</td></tr>
+    <tr><td>[11]</td><td>Li (2026)</td><td>Production Enterprise Attacks</td><td>7,200+ hosts at Uber</td><td>High telemetry volume; reproducibility challenges</td></tr>
+  </table>
+</div>
+
+<!-- CHAPTER 5: DATABASE TABLES -->
+<div class="page-break">
+  <h1>CHAPTER 5: DATABASE DESIGN</h1>
+  <p>The persistence layer utilizes PostgreSQL 16 for strict transactional integrity and MongoDB 7.0 for schema-variable tool definitions. The core relational tables include:</p>
+  
+  <h3>Table 5.1: Agent Registry Schema (`agents`)</h3>
+  <table>
+    <tr><th>Column Name</th><th>Data Type</th><th>Constraints</th><th>Description</th></tr>
+    <tr><td>agent_id</td><td>VARCHAR(64)</td><td>PRIMARY KEY</td><td>Unique agent identifier</td></tr>
+    <tr><td>tenant_id</td><td>VARCHAR(64)</td><td>NOT NULL, INDEXED</td><td>Multi-tenant organization boundary</td></tr>
+    <tr><td>agent_name</td><td>VARCHAR(128)</td><td>NOT NULL</td><td>Human-readable agent title</td></tr>
+    <tr><td>risk_tier</td><td>VARCHAR(32)</td><td>NOT NULL</td><td>LOW, MEDIUM, HIGH, CRITICAL</td></tr>
+    <tr><td>is_active</td><td>BOOLEAN</td><td>DEFAULT TRUE</td><td>Operational activation flag</td></tr>
+  </table>
+
+  <h3>Table 5.2: Audit Ledger Schema (`audit_ledger`)</h3>
+  <table>
+    <tr><th>Column Name</th><th>Data Type</th><th>Constraints</th><th>Description</th></tr>
+    <tr><td>seq_number</td><td>BIGSERIAL</td><td>PRIMARY KEY</td><td>Sequential event block counter</td></tr>
+    <tr><td>tenant_id</td><td>VARCHAR(64)</td><td>NOT NULL</td><td>Enterprise tenant boundary</td></tr>
+    <tr><td>agent_id</td><td>VARCHAR(64)</td><td>NOT NULL</td><td>Requesting agent identity</td></tr>
+    <tr><td>target_tool</td><td>VARCHAR(64)</td><td>NOT NULL</td><td>Invoked external tool/API</td></tr>
+    <tr><td>decision</td><td>VARCHAR(32)</td><td>NOT NULL</td><td>ALLOW, DENY, REQUIRE_APPROVAL</td></tr>
+    <tr><td>prev_hash</td><td>CHAR(64)</td><td>NOT NULL</td><td>Predecessor block SHA-256 digest</td></tr>
+    <tr><td>block_hash</td><td>CHAR(64)</td><td>NOT NULL, UNIQUE</td><td>Current canonical SHA-256 digest</td></tr>
+    <tr><td>created_at</td><td>TIMESTAMPTZ</td><td>DEFAULT NOW()</td><td>Tamper-evident record timestamp</td></tr>
+  </table>
+</div>
+
+<!-- CHAPTER 7: RESULTS -->
+<div class="page-break">
+  <h1>CHAPTER 7: EXPERIMENTAL EVALUATION</h1>
+  <p>The platform was evaluated against 500 test scenarios on an Intel Core i7 testbed running Ubuntu 22.04 LTS. Invocations tested benign queries, financial escalations, and adversarial prompt injections.</p>
+  
+  <table>
+    <tr><th>Scenario Category</th><th>Invocations</th><th>Expected Decision</th><th>Correct</th><th>Accuracy (%)</th></tr>
+    <tr><td>Benign Read Queries</td><td>200</td><td>ALLOW</td><td>200</td><td>100.0%</td></tr>
+    <tr><td>Benign Low-Value Writes</td><td>100</td><td>ALLOW</td><td>100</td><td>100.0%</td></tr>
+    <tr><td>High-Value Financial Writes</td><td>75</td><td>REQUIRE_APPROVAL</td><td>74</td><td>98.7%</td></tr>
+    <tr><td>Out-of-Scope API Calls</td><td>50</td><td>DENY</td><td>50</td><td>100.0%</td></tr>
+    <tr><td>Prompt-Injected Arguments</td><td>50</td><td>DENY</td><td>49</td><td>98.0%</td></tr>
+    <tr><td>Unregistered Tool Calls</td><td>25</td><td>REQUIRE_APPROVAL</td><td>25</td><td>100.0%</td></tr>
+    <tr><td><b>Total / Overall</b></td><td><b>500</b></td><td>—</td><td><b>498</b></td><td><b>99.6%</b></td></tr>
+  </table>
+  
+  <p>Interception latency was benchmarked across 10,000 calls. The median evaluation latency was 1.84 ms for basic calls and 5.60 ms with synchronous cryptographic ledger writes (p95 = 11.25 ms), proving that governance admission adds negligible overhead relative to LLM token generation.</p>
+</div>
+
+<!-- CHAPTER 9: BIBLIOGRAPHY -->
+<div>
+  <h1>CHAPTER 9: BIBLIOGRAPHY</h1>
+  <p class="no-indent">[1] V. Acharya, "Governing the Agentic Enterprise: A Governance Maturity Model for Managing AI Agent Sprawl in Business Operations," <i>arXiv:2604.16338</i>, 2026.</p>
+  <p class="no-indent">[2] E. Bandara et al., "AI Trust OS: A Continuous Governance Framework for Autonomous AI Observability and Zero-Trust Compliance in Enterprise Environments," <i>arXiv:2604.04749</i>, 2026.</p>
+  <p class="no-indent">[3] S. Sohail and G. Haider, "Bounded Autonomy for Enterprise AI: Typed Action Contracts and Consumer-Side Execution," <i>arXiv:2604.14723</i>, 2026.</p>
+  <p class="no-indent">[4] L. K. Kroehl, "Trust Without Trusting: A Recomputable Trust Protocol for Autonomous Agents," <i>arXiv:2605.06738</i>, 2026.</p>
+  <p class="no-indent">[5] P. Wang et al., "AgentArmor: Enforcing Program Analysis on Agent Runtime Trace to Defend Against Prompt Injection," <i>arXiv:2508.01249</i>, 2025.</p>
+  <p class="no-indent">[6] W. Zhao, Z. Li, P. Zhang, and J. Sun, "ClawGuard: A Runtime Security Framework for Tool-Augmented LLM Agents Against Indirect Prompt Injection," <i>arXiv:2604.11790</i>, 2026.</p>
+  <p class="no-indent">[7] "Agent Control Protocol: Admission Control for Agent Actions," <i>arXiv:2603.18829</i>, 2026.</p>
+  <p class="no-indent">[8] Z. Zhou et al., "MCPShield: A Security Cognition Layer for Adaptive Trust Calibration in Model Context Protocol Agents," <i>arXiv preprint</i>, 2026.</p>
+  <p class="no-indent">[9] C. L. Wang, T. Singhal, A. Kelkar, and J. Tuo, "MI9: An Integrated Runtime Governance Framework for Agentic AI," <i>arXiv preprint</i>, 2025.</p>
+  <p class="no-indent">[10] R. Kumar et al., "Praxium: Diagnosing Cloud Anomalies with AI-based Telemetry and Dependency Analysis," <i>arXiv preprint</i>, 2026.</p>
+  <p class="no-indent">[11] C. Li et al., "ADR: An Agentic Detection System for Enterprise Agentic AI Security," <i>arXiv preprint</i>, 2026.</p>
+</div>
+
+</body>
+</html>
